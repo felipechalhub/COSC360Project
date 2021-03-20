@@ -1,0 +1,47 @@
+button{
+background-color: blue;
+color: white;
+
+}
+
+button:hover{
+background-color: green;
+}
+#signIn{
+float: right;
+}
+
+#signUp{
+float:right;
+}
+
+#explore{
+position: absolute;
+top: 250px;
+left: 550px;
+padding: 25px;
+font-size: 16px;
+width: 150px;
+}
+
+html{
+background-image: url(https://wallpaperaccess.com/full/1567666.png);
+
+background-repeat: repeat;
+}
+h1{
+color: white;
+text-align: center;
+}
+h2,h3{
+color: white;
+text-align: center;
+}
+
+.panels{
+position: absolute;
+top: 350px;
+}
+
+
+
