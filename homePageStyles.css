@@ -1,6 +1,6 @@
 button{
-background-color: blue;
-color: white;
+//background-color: blue;
+color: black;
 
 }
 
@@ -9,10 +9,14 @@ background-color: green;
 }
 #signIn{
 float: right;
+margin: 12px;
+width: 75px;
 }
 
 #signUp{
 float:right;
+margin: 12px;
+width: 75px;
 }
 
 #explore{
@@ -25,8 +29,8 @@ width: 150px;
 }
 
 html{
-background-image: url(https://wallpaperaccess.com/full/1567666.png);
-
+background-image: url(https://cdn.discordapp.com/attachments/820404756727726081/822895768880283699/landing_page.jpg);
+ background-size: cover;
 background-repeat: repeat;
 }
 h1{
