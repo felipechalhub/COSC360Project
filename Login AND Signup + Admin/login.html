@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+<title> Login Page </title>
+<link rel="stylesheet" href="login-styling.css">
+</head>
+
+<body> 
+<div class="topnav-right">
+    <a href="#">Home</a>
+    <a href="signup.php">Sign up</a>
+    <a href="#" class="active-page"> Sign in</a>
+</div><br><br><br><br>
+
+<div id="logonamediv">
+<center><img src="logo_200x200.png"></center>
+</div>
+<h2 id="logintext"> Login In </h2>
+    
+<form action="login_page.php" id="formName" method="POST" onsubmit=" return(validateForm());"> 
+<div class="container">
+<input type="text" id="fusername" name="fname" placeholder="Enter username" ><br><br>
+<input type="password" id="fpassword" name="fpassword" placeholder="Enter Password" ><br><br>
+<input type="submit" value="Submit" id="submit">
+<center><p>Don't have an account? <a href="signup.html">Sign up here</a></p></center>
+
+<script>
+function validateForm() {
+  var uName = document.forms["formName"]["fname"].value;
+  var pass = document.forms["formName"]["password"].value;
+  if (uName == "" || pass == "") {
+    alert("Check all fields before submitting.");
+    
+    return false;
+  }
+}
+
+</script>
+</div>
+</form>
+    
+</body>
+
+</html>
