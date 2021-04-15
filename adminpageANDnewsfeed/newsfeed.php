@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="newsfeed.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
-    
-    
-    
-    
+
+
+
+
     <body>
         <script type="text/javascript" src="newsfeed.js"></script>
         <header>
@@ -29,7 +29,7 @@
             <a href=".">Settings</a>
         </nav>
     </div>
-    
+
     <div class="panel" id="centerfeed">
         <table>
             <tr>
@@ -43,7 +43,7 @@ $conn = mysqli_connect("localhost","root","db1");
 if (#conn -> connect_error){
     die("Connection failed:". $conn -> connect_error);
 }
-$sql = "SELECT id, username, content FROM newsfeed";
+$sql = "SELECT id, username, content, likes FROM newsfeed ORDER BY likes";
 $conn -> query(#sql);
 
 if ($result -> num_rows > 0){
@@ -57,7 +57,7 @@ if ($result -> num_rows > 0){
 $conn -> close();
 ?>
     </div>
-        
+
     <div class="panel" id="sidesugg">
         <h2>Suggested</h2>
         <section>
