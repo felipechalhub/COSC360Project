@@ -4,8 +4,14 @@
         <meta charset="utf-8">
         <title>Newsfeed</title>
         <link rel="stylesheet" href="newsfeed.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
+    
+    
+    
+    
     <body>
+        <script type="text/javascript" src="newsfeed.js"></script>
         <header>
             <a href="."><img src="blog.PNG" alt="header logo" class="logo"/></a>
             <nav id="topnav">
@@ -25,18 +31,31 @@
     </div>
     
     <div class="panel" id="centerfeed">
-        <section>
-            <h4>Jane Doe posted new blog</h4>
-            <h3>Insert Blog Title Here</h3>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg?fit-scale" alt="placeholder" style="width: 25em;height: 20em;">
-        </section>
-        <section>
-            <h4>John Doe posted new blog</h4>
-            <h3>Insert Blog Title Here</h3>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-            <img src="https://specials-images.forbesimg.com/imageserve/5e134dbd4e291700061a8aec/960x0.jpg?fit=scale" style="width: 25em;height: 20em;">
-        </section>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>content</th>
+            </tr>
+        </table>
+<?php
+$conn = mysqli_connect("localhost","root","db1");
+if (#conn -> connect_error){
+    die("Connection failed:". $conn -> connect_error);
+}
+$sql = "SELECT id, username, content FROM newsfeed";
+$conn -> query(#sql);
+
+if ($result -> num_rows > 0){
+    while(#row = $result -> fetch_assoc()){
+        echo "<tr><td>". $row["id"] . "</td><td>". $row["username"]. "</td><td>". $row[content] ."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 result";
+}
+$conn -> close();
+?>
     </div>
         
     <div class="panel" id="sidesugg">
