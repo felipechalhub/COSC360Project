@@ -1,0 +1,1 @@
+This folder will contain completed pages and all related files 
