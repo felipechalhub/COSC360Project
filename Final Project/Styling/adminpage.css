@@ -1,0 +1,57 @@
+html{
+    background-image:url(landing_page.jpg);
+    background-size: cover;
+}
+header{
+    background-image: linear-gradient(to right, lightblue, pink);
+    opacity: 0.8;
+    margin: auto;
+    padding: 1.4em 0;
+}
+#topnav{
+    font-size: 1.8em;
+    float: right;
+    vertical-align: middle;
+    overflow: auto;
+}
+.panel{
+    padding-bottom: 50%;
+    float: left;
+    width: 33.3%;
+}
+#sidenav{
+    background-color: gainsboro;
+    opacity: 0.5;
+    font-size: 1.7em;
+    text-align: center;
+    width: 19%;
+    line-height: 300%;
+}
+.b1{
+    background-color: aquamarine;
+    text-align: center;
+    padding: 13px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+.b2{
+    background-color: orange;
+    text-align: center;
+    padding: 13px 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+#centerpanel{
+    align-content: center;
+    text-align: center;
+    margin-top: 1em;
+    width: 40%;
+}
+#rightpanel{
+    width: 40%;
+    background-color: gainsboro;
+}
+#pw{
+    background-color: white;
+}

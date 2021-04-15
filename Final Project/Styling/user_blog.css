@@ -1,0 +1,199 @@
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  background-color: #ddd;
+  overflow-x: hidden;
+}
+
+.topnav {
+  height: 8em;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top:  0;
+  left: 0;
+  background-color:#dedfe0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.topnav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display:inline-block;
+}
+
+.topnav a:hover {
+  color: #f1f1f1;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+.searchBar {
+    /* overflow: hidden; */
+    background-color: #424142;
+    position: relative;
+    top: 5em;
+    margin-top: 4em;
+    padding-top: 25px;
+    height: 4em;
+  }
+  
+  .searchBar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .searchBar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .searchBar a.active {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .searchBar .search-container {
+    float: left;
+  }
+  
+  .searchBar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .searchBar .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .searchBar .search-container button:hover {
+    background: #ccc;
+  }
+    
+ 
+  /* MAIN CONTENT OF THE PAGE */
+  .main {
+    position: relative;
+    top: 7em;
+    height: fit-content;
+    width:110em;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+    margin: 0 auto;
+    /* background: #818181; */
+    background-image: url("../img/landing_page.jpg");
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+
+    
+  }
+  /* POST BLOCK CONTAINING AUTHOR AND CONTENT */
+  .post{
+    border-style: solid;
+    padding: 2em;
+    margin-top: 3em;
+    
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 2em;
+    height: 15em;
+  }
+
+  table, td{
+    /* border: 3px solid black; */
+    border-collapse: collapse;
+    background-color:#2196F3;
+    padding: 3em;
+    width: 105em;
+    height: 7em;
+    text-align: center;
+    table-layout: auto;
+    
+  }
+  #comment{
+    border-collapse: collapse;
+    background-color:#0e6e16;
+    padding: 3em;
+    width: 105em;
+    height: 7em;
+    text-align: center;
+    table-layout: auto;
+  }
+  .comment{
+    border-style: solid;
+    padding: 2em;
+    margin-top: 3em;
+    
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 2em;
+    height: 7em;
+  }
+
+
+  /* POSSIBLY TRASH!!! */
+/* 
+  .author{
+  position: relative;
+  float: left;
+  right: 3em;
+  bottom:3em;
+
+  height: 6em;
+  width: 20%;
+  background-color: yellow;
+  text-align: center;
+
+}
+.content{
+  position:relative;
+  float: right;
+  bottom: 3em;
+
+  height: 6em;
+  width: 80%;
+  background-color: red;
+    z-index: 999999;
+    right: 0;
+    height: 60%;
+    text-align: center;
+} */

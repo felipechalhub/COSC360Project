@@ -1,0 +1,51 @@
+button{
+//background-color: blue;
+color: black;
+
+}
+
+button:hover{
+background-color: green;
+}
+#signIn{
+float: right;
+margin: 12px;
+width: 75px;
+}
+
+#signUp{
+float:right;
+margin: 12px;
+width: 75px;
+}
+
+#explore{
+position: absolute;
+top: 250px;
+left: 550px;
+padding: 25px;
+font-size: 16px;
+width: 150px;
+}
+
+html{
+background-image: url(https://cdn.discordapp.com/attachments/820404756727726081/822895768880283699/landing_page.jpg);
+ background-size: cover;
+background-repeat: repeat;
+}
+h1{
+color: white;
+text-align: center;
+}
+h2,h3{
+color: white;
+text-align: center;
+}
+
+.panels{
+position: absolute;
+top: 350px;
+}
+
+
+
