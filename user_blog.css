@@ -3,8 +3,6 @@ body {
   font-size: 16px;
   background-color: #ddd;
   overflow-x: hidden;
-
-
 }
 
 .topnav {
@@ -116,15 +114,17 @@ img{
     position: relative;
     top: 7em;
     height: fit-content;
-    width:100em;
+    width:110em;
     margin-right: auto;
     margin-left: auto;
     padding: 50px;
     margin: 0 auto;
     /* background: #818181; */
-    background-image: url(/img/landing_page.jpg);
+    background-image: url("../img/landing_page.jpg");
     background-repeat: no-repeat; 
     background-size: 100% 100%;
+
+    
   }
   /* POST BLOCK CONTAINING AUTHOR AND CONTENT */
   .post{
@@ -142,12 +142,36 @@ img{
     /* border: 3px solid black; */
     border-collapse: collapse;
     background-color:#2196F3;
-    padding: 30px;
+    padding: 3em;
+    width: 105em;
+    height: 7em;
+    text-align: center;
+    table-layout: auto;
+    
+  }
+  #comment{
+    border-collapse: collapse;
+    background-color:#0e6e16;
+    padding: 3em;
+    width: 105em;
+    height: 7em;
+    text-align: center;
+    table-layout: auto;
+  }
+  .comment{
+    border-style: solid;
+    padding: 2em;
+    margin-top: 3em;
+    
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 2em;
+    height: 7em;
   }
 
 
   /* POSSIBLY TRASH!!! */
-
+/* 
   .author{
   position: relative;
   float: left;
@@ -163,7 +187,6 @@ img{
 .content{
   position:relative;
   float: right;
-  /* left: -1em; */
   bottom: 3em;
 
   height: 6em;
@@ -173,4 +196,4 @@ img{
     right: 0;
     height: 60%;
     text-align: center;
-}
+} */

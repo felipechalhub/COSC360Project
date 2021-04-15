@@ -6,7 +6,6 @@ if ($db->connect_error) {
     die("Connection failed");
 } else {
     session_start();
-    
 }
 
 ?>
@@ -15,11 +14,10 @@ if ($db->connect_error) {
 
 <head>
     <title>User's blog page</title>
-    <link rel="stylesheet" href="css/user_blog.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="css/user_blog.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
-
 
 
     <div class="topnav">
@@ -46,82 +44,69 @@ if ($db->connect_error) {
 
     <div class="main">
 
-<?php
+        <form action="" method="POST">
+            <label>Post: </label><input type="text" name="content">
+            <label>Category: </label><input type="text" name="category">
+            <button type="submit" name="submit">Submit</button>
 
-$sql = "SELECT * FROM blog b, user u WHERE b.userId = u.userId AND u.userId=1";
-$res = mysqli_query($db,$sql);
-
-if(mysqli_num_rows($res) > 0) {
-    while($row = mysqli_fetch_assoc($res)){
-        echo "<div class=\"post\">";
-        echo "<table>";
-        echo  "<tr>";
-        echo  "<th>Username</th>";
-        echo  "<th>Created date</th>";
-        echo  "<th>Blog Content</th>";
-        echo  "<th>Category</th>";
-        echo  "</tr>";
-        echo "<tr><td><a href = ".$row["username"].">".$row['username']."</a></td><td>".$row["createdDate"]."</td><td>".$row["blogContent"]."</td><td>".$row["category"]."</td></tr>";
-      
-   
-   
-        // $blogId = $row['blogId'];
-    // $createdDate = $row['createdDate'];
-    // $blogContent = $row['blogContent'];
-    // $category = $row['category'];
-    // $userId = $row['userId'];
+        </form>
+        <?php
+        if (isset($_POST['submit'])) {
+            if (!empty($_POST['content']) && !empty($_POST['category'])) {
+                $content = $_POST['content'];
+                $category = $_POST['category'];
+                //CHANGE USERID TO USER CURRENTLY LOGGED IN
+                $insertValues = "INSERT INTO blog (blogContent, category, userId, createdDate) values ('$content','$category', 1, CURRENT_TIMESTAMP)";
+                if (mysqli_query($db, $insertValues)) {
+                    echo "blog posted";
+                } else {
+                    echo "form not submitted" . mysqli_error($db);
+                }
+            } else {
+                echo "all fields required";
+            }
+        }
 
 
-    echo "</table>";
-    echo "</div>";
-}
-}else{
-    echo "0 results";
-}
-$db->close();
-?>
+        $sql = "SELECT * FROM blog b, user u WHERE b.userId = u.userId AND u.userId=1";
+
+        $res = mysqli_query($db, $sql);
+
+        if (mysqli_num_rows($res) > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                echo "<div class=\"post\">";
+                echo "<table>";
+                echo  "<tr>";
+                echo  "<th>Username</th>";
+                echo  "<th>Created date</th>";
+                echo  "<th> <a href ='comments.php?ID={$row['blogId']}'>Blog Content</a> </th>";
+                echo  "<th>Category</th>";
+                echo  "</tr>";
+                echo "<tr><td><a href = " . $row["username"] . ">" . $row['username'] . "</a></td><td>" . $row["createdDate"] . "</td><td>" . $row["blogContent"] . "</td><td>" . $row["category"] . "</td></tr>";
+
+                $blogId = $row['blogId'];
 
 
+                // $blogId = $row['blogId'];
+                // $createdDate = $row['createdDate'];
+                // $blogContent = $row['blogContent'];
+                // $category = $row['category'];
+                // $userId = $row['userId'];
 
-        <!-- <div class="post">
 
-            <table>
-                <tr>
-                    <td>
-                        <a href="#author">Author</a>
-                    </td>
-                    <td>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum</p>
-                    </td>
-                </tr>
-            </table>
+                echo "</table>";
+                echo "</div>";
 
-        </div>
+                $sql2 = "SELECT * FROM blog b, comment c, user u WHERE b.blogId = c.blogId AND u.userId = b.userId";
 
-        <div class="post">
-            <table>
-                <tr>
-                    <td>
-                        <a href="#author">Author</a>
-                    </td>
-                    <td>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum</p>
-                    </td>
-                </tr>
-            </table>
-        </div> -->
+                $res2 = mysqli_query($db, $sql2);
+            }
+        }
+
+        $db->close();
+        ?>
+
+    </div>
     </div>
 
 
