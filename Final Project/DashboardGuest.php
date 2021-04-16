@@ -7,14 +7,14 @@ include "Includes.php";
 <html>
 <head>
 <title> Home Page </title>
-<link href="homePageStyles.css" rel="stylesheet" type="text/css">
+<link href="Styling/homePageStyles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 
 <div>
 <a href = http://localhost/Loginform.php><button id = "signIn">  Sign In  </button></a>
-<a href = http://localhost/Signupform.php><button id = "signUp"> Sign Up </button></a>
+<a href = signup.php><button id = "signUp"> Sign Up </button></a>
 <?php //<a href = "Logout.php"><button id = "signOut">   Sign Out </button></a> ?>
 <?php //<a href = "Profile.php"> <button id = editProfile> Edit Profile </button> </a> ?>
 <?php //<p id = "userNameDisplay"> <?php  $Color = "white";  echo '<div style="Color:'.$Color.'">'.$_SESSION['username'].'</div>';  ?> </p> 
