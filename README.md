@@ -2,3 +2,6 @@
 Complete project found in Final Project folder  
 The implementation document can be found in the main branch. Similarly, the Proposal and the Walkthrough are also in the main branch. The other files for the uploaded project can be found in the final project folder. 
 
+Submitted document on canvas includes: finalproject.zip
+
+The site map is under Page Diagrams. 
