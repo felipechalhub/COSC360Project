@@ -40,6 +40,9 @@
         </table>
 <?php
 $conn = mysqli_connect("localhost","root","db1");
+echo "Hello";
+/*
+
 if (#conn -> connect_error){
     die("Connection failed:". $conn -> connect_error);
 }
@@ -55,6 +58,8 @@ if ($result -> num_rows > 0){
     echo "0 result";
 }
 $conn -> close();
+*/
+echo "Hello";
 ?>
     </div>
 

@@ -33,7 +33,7 @@ header{
     padding: 13px 15px;
     cursor: pointer;
     font-size: 20px;
-    
+
 }
 .b2{
     background-color: orange;
@@ -51,6 +51,12 @@ header{
 #rightpanel{
     width: 40%;
     background-color: gainsboro;
+}
+#searchbar{
+  align-content: center;
+}
+.button{
+  padding: 12px 24px;
 }
 #pw{
     background-color: white;

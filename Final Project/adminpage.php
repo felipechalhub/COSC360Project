@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -24,26 +25,40 @@
             <a href=".">Settings</a>
         </nav>
         </div>
+      <?php
+        $conn = mysqli_connect("localhost","root","","dbName");
+        if(isset($_POST['search'])){
+          $searchKey = $_POST['search'];
+          $sql = "SELECT * FROM users WHERE name LIKE '%$searchKey%'";
+        } else {
+            $sql = "SELECT * FROM users";
+            $searchKey = "";
+        }
 
+        $result = mysqli_query($conn,$sql);
+
+        ?>
       <div class="seachBar">
-        <form action="" method="" id="mysearchbar"/>
-          <input type="text" placeholder="Search.." name="search">
+        <form action="" method="POST" id="mysearchbar"/>
+          <input type="text" placeholder="Search.." name="search" value="<?php echo $searchKey; ?>">
           <button type="submit"><i class="fastSearch"></i></button>
         </form>
       </div>
 
-      
-
-
-
-
-
-
       <div class="showUser">
         <table>
+        <tr>
           <th>Username</th>
           <th>Posts</th>
           <th>Comments</th>
+        </tr>
+        <?php
+        while ($row = mysqli_fetch_object($result)) {}?>
+        <tr>
+          <td><?php echo $row->name ?></td>
+          <td><?php echo $row->content ?></td>
+          <td><?php echo $row->comments ?></td>
+        </tr>
         </table>
       </div>
 
