@@ -26,12 +26,12 @@
         </nav>
         </div>
       <?php
-        $conn = mysqli_connect("localhost","root","","dbName");
+        $conn = mysqli_connect("localhost","root","","db1");
         if(isset($_POST['search'])){
           $searchKey = $_POST['search'];
-          $sql = "SELECT * FROM users WHERE name LIKE '%$searchKey%'";
+          $sql = "SELECT * FROM users2 WHERE username LIKE '%$searchKey%'";
         } else {
-            $sql = "SELECT * FROM users";
+            $sql = "SELECT * FROM users2";
             $searchKey = "";
         }
 
@@ -39,7 +39,7 @@
 
         ?>
       <div class="seachBar">
-        <form action="" method="POST" id="mysearchbar"/>
+        <form action="" method="POST">
           <input type="text" placeholder="Search.." name="search" value="<?php echo $searchKey; ?>">
           <button type="submit"><i class="fastSearch"></i></button>
         </form>
@@ -55,9 +55,9 @@
         <?php
         while ($row = mysqli_fetch_object($result)) {}?>
         <tr>
-          <td><?php echo $row->name ?></td>
+          <td><?php echo $row->username ?></td>
           <td><?php echo $row->content ?></td>
-          <td><?php echo $row->comments ?></td>
+          <td><?php echo $row->comment ?></td>
         </tr>
         </table>
       </div>
