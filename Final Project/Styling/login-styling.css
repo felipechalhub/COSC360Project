@@ -1,7 +1,7 @@
 Body {  
     font-family: Calibri, Helvetica, sans-serif;  
-    background-image: url(landing%20page.jpg);
     height: 100%;
+    background-image: url("../Assets/landing_page.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;

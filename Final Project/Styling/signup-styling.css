@@ -1,6 +1,6 @@
 Body {  
     font-family: Calibri, Helvetica, sans-serif;  
-    background-image: url(landing%20page.jpg);
+    background-image: url("../Assets/landing_page.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

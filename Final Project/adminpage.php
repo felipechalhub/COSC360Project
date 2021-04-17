@@ -1,5 +1,12 @@
+<?php
+include 'db.php';
 
-
+if ($db->connect_error) {
+    die("Connection failed");
+} else {
+    session_start();
+}
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -26,7 +33,6 @@
         </nav>
         </div>
       <?php
-        $conn = mysqli_connect("localhost","root","","db1");
         if(isset($_POST['search'])){
           $searchKey = $_POST['search'];
           $sql = "SELECT * FROM users2 WHERE username LIKE '%$searchKey%'";
@@ -35,7 +41,7 @@
             $searchKey = "";
         }
 
-        $result = mysqli_query($conn,$sql);
+        $result = mysqli_query($db,$sql);
 
         ?>
       <div class="seachBar">
@@ -56,8 +62,8 @@
         while ($row = mysqli_fetch_object($result)) {}?>
         <tr>
           <td><?php echo $row->username ?></td>
-          <td><?php echo $row->content ?></td>
-          <td><?php echo $row->comment ?></td>
+          <td><?php echo $row->blogContent ?></td>
+          <td><?php echo $row->commentContent ?></td>
         </tr>
         </table>
       </div>
@@ -65,7 +71,3 @@
 
 
     </body>
-
-
-
-</html>

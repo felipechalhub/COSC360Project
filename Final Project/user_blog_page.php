@@ -14,18 +14,19 @@ if ($db->connect_error) {
 
 <head>
     <title>User's blog page</title>
-    <link rel="stylesheet" href="css/user_blog.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="Styling/user_blog.css?v=<?php echo time(); ?>">
+
 </head>
 
 <body>
 
 
     <div class="topnav">
-        <a href="#home"><img src="img/logo.png" width="100" height="100"></a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
+        <a href="newsfeed.php"><img src="Assets/logo_200x200.png" width="100" height="100"></a>
+        <a href="homePage.html">Home</a>
+        <a href="signup.php">Sign up</a>
+        <a href="#">Sign Out</a>
+
     </div>
 
     <div class="searchBar">
@@ -36,27 +37,29 @@ if ($db->connect_error) {
                 <button type="submit">search</button>
             </form>
         </div>
-        <a class="notification" href="#">
-            <span>Notifications</span>
-            <span class="badge">3</span>
-        </a>
+
     </div>
 
     <div class="main">
-
+        <div id="addComment">
         <form action="" method="POST">
             <label>Post: </label><input type="text" name="content">
             <label>Category: </label><input type="text" name="category">
             <button type="submit" name="submit">Submit</button>
+            <br>
+            <br>
 
+            <b><?php echo 'Welcome Back '  . $_SESSION['username']; ?></b>
         </form>
+        </div>
         <?php
+
+
         if (isset($_POST['submit'])) {
             if (!empty($_POST['content']) && !empty($_POST['category'])) {
                 $content = $_POST['content'];
                 $category = $_POST['category'];
-                //CHANGE USERID TO USER CURRENTLY LOGGED IN
-                $insertValues = "INSERT INTO blog (blogContent, category, userId, createdDate) values ('$content','$category', 1, CURRENT_TIMESTAMP)";
+                $insertValues = "INSERT INTO blogs (blogContent, category, username, createdDate) values ('$content','$category', '" . $_SESSION['username'] . "', CURRENT_TIMESTAMP)";
                 if (mysqli_query($db, $insertValues)) {
                     echo "blog posted";
                 } else {
@@ -68,7 +71,7 @@ if ($db->connect_error) {
         }
 
 
-        $sql = "SELECT * FROM blog b, user u WHERE b.userId = u.userId AND u.userId=1";
+        $sql = "SELECT * FROM blogs WHERE username='" . $_SESSION['username'] . "'";
 
         $res = mysqli_query($db, $sql);
 
@@ -81,37 +84,27 @@ if ($db->connect_error) {
                 echo  "<th>Created date</th>";
                 echo  "<th> <a href ='comments.php?ID={$row['blogId']}'>Blog Content</a> </th>";
                 echo  "<th>Category</th>";
+                echo  "<th>Likes</th>";
                 echo  "</tr>";
-                echo "<tr><td><a href = " . $row["username"] . ">" . $row['username'] . "</a></td><td>" . $row["createdDate"] . "</td><td>" . $row["blogContent"] . "</td><td>" . $row["category"] . "</td></tr>";
+                echo "<tr><td>" . $row['username'] . "</td><td>" . $row["createdDate"] . "</td><td>" . $row["blogContent"] . "</td><td>" . $row["category"] . "</td><td>" . $row["likes"] . "</td></tr>";
 
                 $blogId = $row['blogId'];
-
-
-                // $blogId = $row['blogId'];
-                // $createdDate = $row['createdDate'];
-                // $blogContent = $row['blogContent'];
-                // $category = $row['category'];
-                // $userId = $row['userId'];
-
 
                 echo "</table>";
                 echo "</div>";
 
-                $sql2 = "SELECT * FROM blog b, comment c, user u WHERE b.blogId = c.blogId AND u.userId = b.userId";
-
-                $res2 = mysqli_query($db, $sql2);
             }
         }
 
         $db->close();
         ?>
 
+
     </div>
     </div>
 
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="Javascript/script.js"></script>
 </body>
 
 </html>

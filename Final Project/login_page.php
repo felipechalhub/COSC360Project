@@ -1,8 +1,7 @@
 <?php include 'db.php';
-if ($conn->connect_error) {     
-    die("Connection failed"); 
-} 
-else {        
+if ($db->connect_error) {
+    die("Connection failed");
+} else {
     session_start();
 }
 if(isset($_POST['fname']) && isset($_POST['fpassword'])) { 
@@ -16,16 +15,18 @@ if(isset($_POST['fname']) && isset($_POST['fpassword'])) {
     $uname = $_POST['fname'];
     $pass = $_POST['fpassword'];
     $pass = md5($pass);
-    $sql= "SELECT * FROM users where username='$uname' AND pw='$pass'";
-    $result = mysqli_query($conn, $sql);
+    $sql= "SELECT * FROM user where username='$uname' AND userPassword='$pass'";
+    $result = mysqli_query($db, $sql);
     
     if(mysqli_num_rows($result) === 1){ 
         $row = mysqli_fetch_assoc($result);
-        if($row['username'] === $uname && $row['pw'] === $pass) { 
-            echo "Logged in!";
+        if($row['username'] === $uname && $row['userPassword'] === $pass) {
+            $_SESSION['username']=$uname; 
+            header("Location: Dashboard.php");
+            // echo "Logged in!";
         }
         else{ 
-            alert("Incorrect Username or password!");
+            echo "Incorrect Username or password!";
         }
 
     }

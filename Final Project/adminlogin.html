@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Admin Login </title>
+  <link rel="stylesheet" href="Styling/login-styling.css">
+</head>
+
+<body>
+
+
+  <div id="logonamediv">
+    <center><img src="Assets/logo_200x200.png"></center>
+  </div>
+  <h2 id="logintext"> Admin Log on </h2>
+
+  <form action="admin_php.php" id="formName" method="POST" onsubmit="return(validateForm());">
+    <div class="container">
+      <input type="text" id="fusername" name="fname" placeholder="Enter username"><br><br>
+      <input type="password" id="fpassword" name="password" placeholder="Enter Password"><br><br>
+      <input type="submit" value="Submit" id="submit">
+
+      <script>
+        function validateForm() {
+          var uName = document.forms["formName"]["fname"].value;
+          var pass = document.forms["formName"]["password"].value;
+          if (uName == "" || pass == "") {
+            alert("Check all fields before submitting.");
+
+            return false;
+          }
+
+        }
+
+      </script>
+
+
+    </div>
+  </form>
+
+</body>
+
+</html>
