@@ -1,0 +1,1 @@
+this folder will contain SQL for databased used for the project
